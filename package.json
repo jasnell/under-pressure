@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jasnell/under-pressure#readme",
   "dependencies": {
     "fastify": "^3.17.0",
+    "notare": "^2.2.0",
     "under-pressure": "^5.6.0"
   }
 }
