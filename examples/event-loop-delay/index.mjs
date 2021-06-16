@@ -7,17 +7,11 @@ monitor.enable();
 const fastify = Fastify()
 
 fastify.get('/', async (request, reply) => {
-  const duration = (Math.random() * 1e6) | 0;
-  syncSleep(duration);
-  console.log(monitor.mean, monitor.max, duration);
+  for (let n = 0; n < 1e9; n++) {}
+  console.log(monitor.mean, monitor.max);
   return { hello: 'world' };
 })
 
 fastify.listen(3000, function (err, address) {
   if (err) process.exit(1)
 })
-
-function syncSleep(n) {
-  const sab = new SharedArrayBuffer(4);
-  Atomics.wait(new Int32Array(sab), 0, 1, n);
-}
